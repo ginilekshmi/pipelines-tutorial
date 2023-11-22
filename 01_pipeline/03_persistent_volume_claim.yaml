@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: source-pvc
+  name: test-pvc-${PIPELINE_RUN_NAME}
 spec:
   accessModes:
     - ReadWriteOnce
