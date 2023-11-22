@@ -3,6 +3,14 @@ kind: Pipeline
 metadata:
   name: build-and-deploy
 spec:
+  finally:
+    - name: test-cleanup
+      params:
+        - name: pipelineRunName
+          value: $(context.pipelineRun.name)
+      taskRef:
+        kind: Task
+        name: test-cleanup
   workspaces:
   - name: shared-workspace
   params:
